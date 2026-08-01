@@ -38,3 +38,22 @@ Source → GitHub Actions**.
 - `references.md`: APA reference list; every in-text citation links to its entry
 - `style.css`: theme overrides for the MyST book-theme
 - `scripts/patch_theme.py`: sidebar and search patches described above
+
+## Why the DOIs in `references.md` are escaped
+
+The reference list is reproduced verbatim from the submitted manuscript, and
+each DOI is written as `https\://doi.org/...` — the backslash is deliberate.
+
+MyST's `transformLinkedDOIs` rewrites *any* link whose target resolves to a
+DOI, including a bare URL that Markdown auto-links. It replaces the visible URL
+with an author-year label fetched from doi.org and appends a second,
+auto-generated bibliography, which both duplicates this list and rewrites the
+author's entries — for one DOI it resolved to a different paper than the one
+cited. There is no setting to turn the transform off, and it matches any URL
+with a DOI in its path, so escaping the scheme is what keeps each DOI as
+literal text.
+
+The trade-off is that DOIs are displayed but not clickable. Non-DOI URLs in the
+list (Perplexity, the two FDA documents) are unaffected and remain links. The
+explanation lives here rather than in a `%` comment in `references.md` because
+MyST puts comment text into the site search index.
