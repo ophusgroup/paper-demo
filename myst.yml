@@ -1,0 +1,51 @@
+# MyST configuration for the dapagliflozin outpatient heart failure review.
+# See: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: paper-demo
+  title: Dapagliflozin in Heart Failure
+  description: >
+    Dapagliflozin in Outpatient Heart Failure: Effects on Hospitalization and
+    Cardiovascular Mortality — a systematic review of seven high-quality studies.
+  authors:
+    - name: Ana Johnson
+    - name: Aaron Johnson
+  date: 2026-04-20
+  keywords:
+    - heart failure
+    - dapagliflozin
+    - SGLT2 inhibitors
+    - hospitalization
+    - cardiovascular mortality
+    - DAPA-HF
+    - DELIVER
+  github: https://github.com/ophusgroup/paper-demo
+  exclude:
+    - README.md
+  toc:
+    - file: index.md
+    - title: Paper
+      children:
+        - file: sections/introduction.md
+        - file: sections/methods.md
+        - file: sections/review.md
+        - file: sections/discussion.md
+        - file: sections/conclusion.md
+    - file: references.md
+site:
+  template: book-theme
+  title: Dapagliflozin in Heart Failure
+  options:
+    # Custom theming — see ./style.css
+    style: ./style.css
+    logo_text: Dapagliflozin in Heart Failure
+    folders: true
+    outline_maxdepth: 2
+    hide_footer_links: true
+  nav:
+    - title: DAPA-HF
+      url: https://doi.org/10.1056/NEJMoa1911303
+    - title: DELIVER
+      url: https://doi.org/10.1056/NEJMoa2206286
+    - title: AHA/ACC/HFSA Guideline
+      url: https://doi.org/10.1016/j.jacc.2021.12.012
