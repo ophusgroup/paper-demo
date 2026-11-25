@@ -193,12 +193,12 @@ header.myst-fm-authors-affiliations {
   position: relative;
   display: flex;
   align-items: center;
+  width: 12rem;
   min-width: 0;          /* allow the input to shrink inside the flex nav */
 }
 .nbc-search input {
   height: 2.5rem;
   width: 100%;
-  max-width: 12rem;
   padding: 0 0.75rem;
   font-size: 0.875rem;
   color: inherit;
@@ -220,7 +220,7 @@ html.dark .nbc-search input {
   box-shadow: 0 0 0 1px var(--nbc-accent);
 }
 @media (min-width: 640px) {
-  .nbc-search input { max-width: 20rem; }
+  .nbc-search { width: 16rem; }   /* the stock search button's sm:w-64 */
 }
 .nbc-search-results {
   position: absolute;
@@ -231,12 +231,14 @@ html.dark .nbc-search input {
   max-height: 70vh;
   overflow-y: auto;
   padding: 0.25rem;
+  color: rgb(28, 25, 23);   /* the top bar's text color is black in both themes */
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
 }
 html.dark .nbc-search-results {
+  color: rgb(231, 229, 228);
   background: rgb(28, 25, 23);
   border-color: rgba(255, 255, 255, 0.18);
 }
@@ -368,4 +370,52 @@ article table th {
 }
 .nbc-picot p:last-child {
   margin-bottom: 0;
+}
+
+/* ---------- Sidebar footer: lab logo (theme-swapped) ---------- */
+.myst-primary-sidebar-footer figure,
+.myst-primary-sidebar-footer p {
+  margin: 0;
+  text-align: left;
+}
+.myst-primary-sidebar-footer .nbc-sidebar-logo {
+  display: block;
+  margin: 0 0 2px 0;
+}
+.myst-primary-sidebar-footer .nbc-sidebar-logo img {
+  display: block;
+  margin: 0 !important;   /* the theme centers images with auto margins */
+}
+html.dark .nbc-logo-light {
+  display: none;
+}
+html:not(.dark) .nbc-logo-dark {
+  display: none;
+}
+div.article.footer.myst-primary-sidebar-footer {
+  position: relative;
+  width: 130px;
+}
+/* hide the external-link arrow icon */
+.myst-primary-sidebar-footer p a svg {
+  display: none !important;
+}
+.myst-primary-sidebar-footer p a {
+  display: block;
+  width: 130px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit !important;
+  opacity: 0.8;
+}
+/* make the logo + text block one click target */
+.myst-primary-sidebar-footer p a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.myst-primary-sidebar-footer p a:hover {
+  opacity: 1;
 }
